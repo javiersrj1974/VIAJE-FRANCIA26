@@ -70,7 +70,7 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 .visit-list { padding: 0.4rem 0; }
 .visit-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.45rem 0.8rem; }
 .visit-item:not(:last-child) { border-bottom: 1px solid #f3f4f6; }
-.visit-name { font-size: 0.82rem; color: #1f2937; font-weight: 700; }
+.visit-name { font-size: 0.82rem; color: #1a1f36; font-weight: 700; }
 .visit-desc { font-size: 0.75rem; color: #9ca3af; margin-top: 0.1rem; }
 .visit-hours { font-size: 0.7rem; color: #7c3aed; white-space: nowrap; text-align: right; }
 .visit-rating { font-size: 0.7rem; color: #d97706; white-space: nowrap; text-align: right; margin-top: 0.2rem; }
@@ -84,7 +84,7 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 .shop-list { padding: 0.4rem 0; }
 .shop-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.45rem 0.8rem; }
 .shop-item:not(:last-child) { border-bottom: 1px solid #f3f4f6; }
-.shop-name { font-size: 0.82rem; color: #1f2937; font-weight: 700; }
+.shop-name { font-size: 0.82rem; color: #1a1f36; font-weight: 700; }
 .shop-desc { font-size: 0.75rem; color: #9ca3af; margin-top: 0.1rem; }
 .shop-addr { font-size: 0.7rem; color: #4a5d76; margin-top: 0.1rem; }
 .shop-hours { font-size: 0.7rem; color: #16a34a; white-space: nowrap; text-align: right; }
@@ -124,7 +124,7 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 .lista-item::before { content: ''; width: 14px; height: 14px; min-width: 14px; border: 1px solid #d1d5db; border-radius: 3px; transition: all 0.15s; }
 .lista-item.checked { color: #d1d5db; text-decoration: line-through; }
 .lista-item.checked::before { background: #50b882; border-color: #50b882; content: '✓'; display: flex; align-items: center; justify-content: center; font-size: 10px; color: white; }
-.lista-item strong { color: #1f2937; }
+.lista-item strong { color: #1a1f36; }
 .lista-item.checked strong { color: #d1d5db; }
 
 .section-label { text-align: center; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: #9ca3af; margin: 2rem 0 0.5rem; }
@@ -183,6 +183,18 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 
 .book-link { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.5rem; font-size: 0.7rem; font-weight: 600; padding: 0.28rem 0.7rem; border-radius: 1rem; background: rgba(192,120,48,0.10); border: 1px solid rgba(192,120,48,0.35); color: #c07830; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
 .book-link:hover { background: rgba(192,120,48,0.22); }
+
+/* GASOLINERAS */
+.gas-box { margin-top: 0.6rem; padding: 0.6rem 0.9rem; background: #f0f7f0; border-left: 2px solid #16a34a; border-radius: 0 6px 6px 0; }
+.gas-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #16a34a; margin-bottom: 0.35rem; }
+.gas-item { display: flex; align-items: flex-start; gap: 0.4rem; margin-bottom: 0.3rem; }
+.gas-item:last-child { margin-bottom: 0; }
+.gas-rank { font-size: 0.65rem; font-weight: 700; color: #16a34a; min-width: 1rem; padding-top: 0.05rem; }
+.gas-info { flex: 1; }
+.gas-name { font-size: 0.78rem; font-weight: 600; color: #1a1f36; }
+.gas-addr { font-size: 0.7rem; color: #9ca3af; margin-top: 0.05rem; }
+.gas-hours { font-size: 0.68rem; color: #6b7280; margin-top: 0.05rem; font-style: italic; }
+.gas-tip { font-size: 0.68rem; color: #16a34a; margin-top: 0.05rem; font-style: italic; }
 </style>
 </head>
 <body>
@@ -230,6 +242,12 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
       <p class="day-desc">Gran día de viaje hacia el sur de Francia. Llegada a media tarde, instalación y primer baño en las playas cercanas a la casa.</p>
       <div class="activities"><span class="activity-tag">🚗 Viaje largo</span><span class="activity-tag">🏖️ Playa al llegar</span></div>
       <div class="accom-box"><div class="accom-label">Alojamiento · días 1–2</div><div class="accom-name">Ostau Agradiu — Maison de maître proche de la mer</div><div class="accom-addr">Costa Vermella, Francia</div><div class="accom-addr" style="margin-top:0.4rem"><a href="https://www.booking.com/hotel/fr/villa-margotte-maison-de-maitre-proche-de-la-mer.es.html" target="_blank" style="color:#d4a050;font-size:0.75rem;">Ver en Booking.com ↗</a></div></div>
+      <div class="gas-box">
+  <div class="gas-label">⛽ Gasolineras más baratas · Argelès-sur-Mer</div>
+  <div class="gas-item"><div class="gas-rank">1.</div><div class="gas-info"><div class="gas-name">Intermarché Station-Service</div><div class="gas-addr">Zone Commerciale, Rue des Milans — junto al hiper</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 3.6 · La más barata de la zona — precio de hiper, abierta siempre</div></div></div>
+  <div class="gas-item"><div class="gas-rank">2.</div><div class="gas-info"><div class="gas-name">Dyneff GPL</div><div class="gas-addr">Av. du 8 Mai 1945 · cerca de Lidl</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 4.2 · Precio competitivo, amplio espacio para coche grande</div></div></div>
+  <div class="gas-item"><div class="gas-rank">3.</div><div class="gas-info"><div class="gas-name">TotalEnergies Argelès</div><div class="gas-addr">5 Rte du Littoral · junto al mar</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 4.0 · Surtidores en varios idiomas, cómodo al llegar o salir</div></div></div>
+</div>
       <div class="shop-block">
         <div class="shop-block-header"><span class="shop-block-title">🛒 Dónde comprar — Argelès-sur-Mer</span></div>
         <div class="shop-list">
@@ -292,6 +310,12 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
         </div>
       </div>
       <div class="accom-box"><div class="accom-label">Alojamiento · días 3–7</div><div class="accom-name">Résidence "A Torbia"</div><div class="accom-addr">12 Avenue du Général de Gaulle · La Turbie 06320, Francia</div><div class="accom-addr" style="margin-top:0.4rem"><a href="https://www.booking.com/hotel/fr/residence-a-torbia-t3-nice.es.html" target="_blank" style="color:#d4a050;font-size:0.75rem;">Ver en Booking.com ↗</a></div></div>
+      <div class="gas-box">
+  <div class="gas-label">⛽ Gasolineras más baratas · La Turbie / Mónaco</div>
+  <div class="gas-item"><div class="gas-rank">1.</div><div class="gas-info"><div class="gas-name">E.Leclerc Autoroute · Beausoleil ⭐ MEJOR OPCIÓN</div><div class="gas-addr">Aire de la Riviera Française, 06240 Beausoleil</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 4.2 · La más barata cerca de Mónaco, justo en la A8 · repostar aquí antes de entrar al Principado</div></div></div>
+  <div class="gas-item"><div class="gas-rank">2.</div><div class="gas-info"><div class="gas-name">Intermarché Station-Service · Menton</div><div class="gas-addr">91 Rte du Val des Castagnins · Menton</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 3.6 · Precio de hiper, 15 min de La Turbie. Alternativa si se baja a Menton</div></div></div>
+  <div class="gas-item"><div class="gas-rank">3.</div><div class="gas-info"><div class="gas-name">Station Service CTNT · La Turbie (de emergencia)</div><div class="gas-addr">231 Chemin de Saint-Pierre · La Turbie</div><div class="gas-hours">Lu–Sá 8–12h / 14–19h (cerrado domingos)</div><div class="gas-tip">⭐ 3.4 · La más próxima al alojamiento pero más cara. Solo para emergencias</div></div></div>
+</div>
       <div class="shop-block">
         <div class="shop-block-header"><span class="shop-block-title">🛒 Dónde comprar — La Turbie / Mónaco</span></div>
         <div class="shop-list">
@@ -424,6 +448,11 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
       <p class="day-desc">Gran traslado de costa a costa. Al llegar, mercado local y primera tarde en la tranquila Bahía de Arcachon.</p>
       <div class="activities"><span class="activity-tag">🚗 Traslado largo</span><span class="activity-tag">🛒 Compras</span><span class="activity-tag">🏖️ Playa</span></div>
       <div class="accom-box"><div class="accom-label">Alojamiento · días 8–9</div><div class="accom-name">Maison de vacances familiale proche de la plage</div><div class="accom-addr">16 Rue des Liserons · Andernos-les-Bains 33510, Francia</div><div class="accom-addr" style="margin-top:0.4rem"><a href="https://www.booking.com/hotel/fr/maison-de-vacances-familiale-proche-de-la-plage.es.html" target="_blank" style="color:#d4a050;font-size:0.75rem;">Ver en Booking.com ↗</a></div></div>
+      <div class="gas-box">
+  <div class="gas-label">⛽ Gasolineras más baratas · Andernos-les-Bains</div>
+  <div class="gas-item"><div class="gas-rank">1.</div><div class="gas-info"><div class="gas-name">Intermarché Station-Service · Andernos ⭐ MEJOR OPCIÓN</div><div class="gas-addr">2 Rue Bertin Lalande · junto al supermercado</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 3.9 · La más barata de la zona, precio de hiper, abierta siempre</div></div></div>
+  <div class="gas-item"><div class="gas-rank">2.</div><div class="gas-info"><div class="gas-name">TotalEnergies Contact · Andernos</div><div class="gas-addr">108 Av. de Bordeaux · Andernos</div><div class="gas-hours">Lu–Vi 8:30–12h / 14:30–18h · Cerrado sábados y domingos</div><div class="gas-tip">⭐ 3.0 · Solo como alternativa entre semana, cierra fines de semana</div></div></div>
+</div>
       <div class="shop-block">
         <div class="shop-block-header"><span class="shop-block-title">🛒 Dónde comprar — Andernos-les-Bains</span></div>
         <div class="shop-list">
