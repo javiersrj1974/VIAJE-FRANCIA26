@@ -144,6 +144,20 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
 .map-link { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.6rem; font-size: 0.72rem; padding: 0.25rem 0.75rem; border-radius: 1rem; background: rgba(55,138,221,0.1); border: 1px solid rgba(55,138,221,0.3); color: #5a9fd4; text-decoration: none; white-space: nowrap; }
 .map-link:hover { background: rgba(55,138,221,0.2); color: #7ab8e8; }
 
+/* COUNTDOWN */
+.countdown-wrap { margin-top: 2rem; text-align: center; }
+.countdown-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #6e85a8; margin-bottom: 0.85rem; }
+.countdown-blocks { display: inline-flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+.countdown-block { display: flex; flex-direction: column; align-items: center; background: rgba(212,160,80,0.1); border: 1px solid rgba(212,160,80,0.3); border-radius: 10px; padding: 0.6rem 1rem; min-width: 62px; }
+.countdown-num { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 700; color: #d4a050; line-height: 1; letter-spacing: -0.02em; }
+.countdown-unit { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: #6e85a8; margin-top: 0.25rem; }
+.countdown-sep { font-size: 1.8rem; font-weight: 700; color: rgba(212,160,80,0.4); line-height: 1; padding-bottom: 0.5rem; }
+.countdown-done { font-family: 'DM Sans', sans-serif; font-style: italic; font-size: 1rem; color: #50b882; margin-top: 0.5rem; }
+@media (max-width: 600px) {
+  .countdown-num { font-size: 1.5rem; }
+  .countdown-block { min-width: 50px; padding: 0.5rem 0.7rem; }
+}
+
 
 
 .cost-badge { display: flex; align-items: center; justify-content: space-between; margin: 0.8rem 0.8rem 0; padding: 0.55rem 0.9rem; background: rgba(212,160,80,0.08); border: 1px solid rgba(212,160,80,0.25); border-radius: 6px; }
@@ -254,6 +268,20 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
     <div class="summary-stat"><span class="num">4</span><span class="lbl">Países</span></div>
     <div class="summary-stat"><span class="num">3</span><span class="lbl">Casas</span></div>
     <div class="summary-stat"><span class="num">8</span><span class="lbl">Personas</span></div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-wrap" id="countdownWrap">
+    <div class="countdown-label" id="countdownLabel">Faltan para el inicio del viaje</div>
+    <div class="countdown-blocks" id="countdownBlocks">
+      <div class="countdown-block"><span class="countdown-num" id="cdDays">--</span><span class="countdown-unit">días</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-block"><span class="countdown-num" id="cdHours">--</span><span class="countdown-unit">horas</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-block"><span class="countdown-num" id="cdMins">--</span><span class="countdown-unit">min</span></div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-block"><span class="countdown-num" id="cdSecs">--</span><span class="countdown-unit">seg</span></div>
+    </div>
   </div>
 </div>
 
@@ -1153,6 +1181,34 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
 </div>
 
 <script>
+// COUNTDOWN
+(function() {
+  const TARGET = new Date('2026-08-15T07:00:00'); // 15 ago 2026, salida mañana
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const now = new Date();
+    const diff = TARGET - now;
+    const wrap = document.getElementById('countdownWrap');
+    if (!wrap) return;
+    if (diff <= 0) {
+      document.getElementById('countdownLabel').textContent = '';
+      document.getElementById('countdownBlocks').innerHTML = '<span class="countdown-done">🚗 ¡El viaje ha comenzado! Bon voyage! 🇫🇷</span>';
+      return;
+    }
+    const totalSecs = Math.floor(diff / 1000);
+    const days  = Math.floor(totalSecs / 86400);
+    const hours = Math.floor((totalSecs % 86400) / 3600);
+    const mins  = Math.floor((totalSecs % 3600) / 60);
+    const secs  = totalSecs % 60;
+    document.getElementById('cdDays').textContent  = pad(days);
+    document.getElementById('cdHours').textContent = pad(hours);
+    document.getElementById('cdMins').textContent  = pad(mins);
+    document.getElementById('cdSecs').textContent  = pad(secs);
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
 function toggleCat(card) {
   const body = card.querySelector('.costes-cat-body');
   const isOpen = body.classList.contains('open');
