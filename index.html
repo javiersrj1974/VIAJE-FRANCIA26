@@ -158,6 +158,41 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
   .countdown-block { min-width: 50px; padding: 0.5rem 0.7rem; }
 }
 
+/* ACTIVIDADES PANEL */
+.act-panel { max-width: 860px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.act-intro { text-align: center; padding: 0 0 1.5rem; font-size: 0.78rem; color: #6e85a8; font-style: italic; }
+.act-day { margin-bottom: 0.6rem; border: 1px solid #2a3d5c; border-radius: 10px; background: #172542; overflow: hidden; }
+.act-day-header { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.1rem; cursor: pointer; user-select: none; background: #1a2a42; transition: background 0.2s; gap: 0.8rem; }
+.act-day-header:hover { background: #1e3050; }
+.act-day-header.open { background: #1e3050; border-bottom: 1px solid #2a3d5c; }
+.act-day-left { display: flex; align-items: center; gap: 0.8rem; flex: 1; min-width: 0; }
+.act-day-num { font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 700; color: #d4a050; line-height: 1; flex-shrink: 0; min-width: 2.2rem; }
+.act-day-info { min-width: 0; }
+.act-day-date { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6e85a8; }
+.act-day-title { font-size: 0.92rem; font-weight: 600; color: #eef1f8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.act-day-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; flex-shrink: 0; }
+.act-arrow { color: #6e85a8; font-size: 0.8rem; flex-shrink: 0; transition: transform 0.25s; }
+.act-day-header.open .act-arrow { transform: rotate(180deg); }
+.act-body { display: none; padding: 0.8rem 1.1rem 1rem; }
+.act-body.open { display: block; }
+.act-section-title { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: #7c3aed; font-weight: 700; margin: 0.8rem 0 0.5rem; border-bottom: 1px solid #1e2d44; padding-bottom: 0.35rem; }
+.act-section-title:first-child { margin-top: 0; }
+.act-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.7rem; padding: 0.55rem 0; border-bottom: 1px solid #1e2d44; }
+.act-item:last-child { border-bottom: none; }
+.act-item-left { flex: 1; min-width: 0; }
+.act-item-name { font-size: 0.85rem; color: #eef1f8; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.act-item-desc { font-size: 0.75rem; color: #6e85a8; margin-top: 0.15rem; line-height: 1.55; }
+.act-item-price { font-size: 0.72rem; color: #d4a050; margin-top: 0.25rem; }
+.act-item-right { text-align: right; flex-shrink: 0; }
+.act-item-hours { font-size: 0.7rem; color: #7c3aed; white-space: nowrap; }
+.act-item-rating { font-size: 0.7rem; color: #d97706; margin-top: 0.15rem; }
+.act-badge-res { display: inline-block; font-size: 0.58rem; padding: 0.1rem 0.45rem; border-radius: 1rem; background: #fff7ed; border: 1px solid #fed7aa; color: #ea580c; font-weight: 700; white-space: nowrap; }
+.act-badge-free { display: inline-block; font-size: 0.58rem; padding: 0.1rem 0.45rem; border-radius: 1rem; background: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; }
+.act-link { display: inline-flex; align-items: center; gap: 0.25rem; margin-top: 0.4rem; font-size: 0.68rem; padding: 0.2rem 0.6rem; border-radius: 1rem; background: rgba(212,160,80,0.1); border: 1px solid rgba(212,160,80,0.3); color: #d4a050; text-decoration: none; }
+.act-link:hover { background: rgba(212,160,80,0.2); }
+.act-empty { font-size: 0.82rem; color: #6e85a8; font-style: italic; padding: 0.5rem 0; }
+@media (max-width: 600px) { .act-day-tags { display: none; } }
+
 
 
 .cost-badge { display: flex; align-items: center; justify-content: space-between; margin: 0.8rem 0.8rem 0; padding: 0.55rem 0.9rem; background: rgba(212,160,80,0.08); border: 1px solid rgba(212,160,80,0.25); border-radius: 6px; }
@@ -291,7 +326,8 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
   <button class="tab-btn active" onclick="showTab('itinerario',this)">📍 Itinerario</button>
   <button class="tab-btn" onclick="showTab('menu',this)">🍽️ Menú</button>
   <button class="tab-btn" onclick="showTab('compra',this)">🛒 Lista compra</button>
-  <button class="tab-btn" onclick="showTab('costes',this)">💶 Costes</button>
+  <button class="tab-btn" onclick="showTab('costes',this)">💶 Presupuesto</button>
+  <button class="tab-btn" onclick="showTab('actividades',this)">🎯 Actividades</button>
 </div>
 
 <!-- ========== ITINERARIO ========== -->
@@ -1175,6 +1211,371 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
 </div>
 </div>
 
+
+<!-- ========== ACTIVIDADES ========== -->
+<div id="tab-actividades" class="tab-panel">
+<div class="act-panel">
+  <p class="act-intro">Todas las visitas y actividades del viaje · Haz clic en cada día para desplegar el detalle</p>
+
+  <!-- DÍA 1 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">01</div>
+        <div class="act-day-info"><div class="act-day-date">Sáb 15 ago · Costa Vermella</div><div class="act-day-title">Salida desde Alpedrete</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">🚗 Viaje largo</span><span class="activity-tag">🏖️ Playa al llegar</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <p class="act-empty">Día de viaje. Sin visitas programadas — primer baño en las playas de Argelès al llegar.</p>
+    </div>
+  </div>
+
+  <!-- DÍA 2 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">02</div>
+        <div class="act-day-info"><div class="act-day-date">Dom 16 ago · Collioure</div><div class="act-day-title">Collioure — Día de agua</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">⚓ Collioure</span><span class="activity-tag">⛵ Barco</span><span class="activity-tag">🎨 Casco histórico</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <div class="act-section-title">📍 Visitas y actividades</div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">⛵ Excursión en barco — Costa Vermella <span class="act-badge-res">⚡ Reservar</span></div>
+          <div class="act-item-desc">Barco desde el puerto hacia las calas vírgenes: Peyrefite, Canadell, Cala Virgili. Snorkel y parada en cala privada incluidos.</div>
+          <div class="act-item-price">~25–35€/pers · 8 pers: ~200–280€</div>
+          <a class="act-link" href="https://www.viator.com/Collioure/d24222-ttd" target="_blank">🎟️ Ver en Viator ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">9:30h y 14:30h</div><div class="act-item-rating">⭐ 4.8</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏰 Château Royal de Collioure</div>
+          <div class="act-item-desc">Castillo medieval sobre el mar. Vistas espectaculares sobre la bahía.</div>
+          <div class="act-item-price">~10€/pers · 8 pers: ~80€</div>
+          <a class="act-link" href="https://www.chateau-collioure.com/" target="_blank">🎟️ Web oficial ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">10–18h</div><div class="act-item-rating">⭐ 4.6</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 3 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">03</div>
+        <div class="act-day-info"><div class="act-day-date">Lun 17 ago · Mónaco</div><div class="act-day-title">Llegada a La Turbie · Mónaco</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">🏎️ F1</span><span class="activity-tag">🎰 Casino</span><span class="activity-tag">🌙 Noche</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <div class="act-section-title">📍 Visitas en Mónaco</div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🎰 Casino de Monte-Carlo <span class="act-badge-res">⚡ Reservar</span></div>
+          <div class="act-item-desc">Joya Belle Époque. Visita diurna desde 10h (20€ incl. 10€ crédito) o juego desde 14h. Llevar pasaporte.</div>
+          <div class="act-item-price">20€/pers · 8 pers: 160€</div>
+          <a class="act-link" href="https://www.casinomontecarlo.com/es/visitas/" target="_blank">🎟️ Entradas ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">10h – cierre</div><div class="act-item-rating">⭐ 4.6</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏛️ Palacio del Príncipe <span class="act-badge-res">⚡ Reservar</span></div>
+          <div class="act-item-desc">Residencia oficial de los Grimaldi. Cambio de guardia 11:55h. Vistas increíbles del puerto.</div>
+          <div class="act-item-price">~10€/pers · 8 pers: ~80€</div>
+          <a class="act-link" href="https://palais.mc/es/visita-del-palacio/palacio-del-principe/" target="_blank">🎟️ Web oficial ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">10–18h</div><div class="act-item-rating">⭐ 4.6</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🐠 Museo Oceanográfico</div>
+          <div class="act-item-desc">Espectacular acuario en un edificio colgado sobre el mar. Fundado por el Príncipe Alberto I.</div>
+          <div class="act-item-price">~18€/pers · 8 pers: ~144€</div>
+          <a class="act-link" href="https://www.oceano.mc/es/visita/informaciones-practicas" target="_blank">🎟️ Entradas ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Lu–Vi 10–19h</div><div class="act-item-rating">⭐ 4.5</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🌵 Jardín Exótico de Mónaco</div>
+          <div class="act-item-desc">Cactus gigantes en acantilado con vistas 360°. Incluye visita a la cueva prehistórica.</div>
+          <div class="act-item-price">7.50€/pers · 8 pers: 60€</div>
+          <a class="act-link" href="https://www.gouv.mc/Action-Gouvernementale/Les-Equipements-Publics/Le-Jardin-Exotique" target="_blank">🎟️ Web oficial ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">9–19h</div><div class="act-item-rating">⭐ 4.6</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 4 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">04</div>
+        <div class="act-day-info"><div class="act-day-date">Mar 18 ago · Costa Azul</div><div class="act-day-title">Eze & Niza</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">🏔️ Eze</span><span class="activity-tag">🏊 Plage Mala</span><span class="activity-tag">🌊 Niza</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <div class="act-section-title">📍 Visitas</div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🌵 Jardin Exotique d'Eze</div>
+          <div class="act-item-desc">Cactus y suculentas con vistas panorámicas al Mediterráneo desde 427m. Impresionante.</div>
+          <div class="act-item-price">10€/pers · 8 pers: 80€</div>
+          <a class="act-link" href="https://www.ville-eze.fr/decouvrir/jardin-exotique" target="_blank">🎟️ Web oficial ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">9–18:30h</div><div class="act-item-rating">⭐ 4.7</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏘️ Eze Village <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Casas medievales de piedra, galerías de arte y vistas de ensueño sobre el Mediterráneo.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Libre</div><div class="act-item-rating">⭐ 4.7</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏖️ Plage Mala <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Una de las mejores calas de la Costa Azul, a 5 min de La Turbie. Aguas turquesas, snorkel y saltos desde las rocas.</div>
+          <div class="act-item-price">Parking ~5–8€/día</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Siempre</div><div class="act-item-rating">⭐ 4.8</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🗼 Colline du Château · Niza <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">El mejor mirador de Niza. Cascada, jardines y vistas de la Baie des Anges. Ascensor gratuito.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">8:30–20h</div><div class="act-item-rating">⭐ 4.7</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 5 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">05</div>
+        <div class="act-day-info"><div class="act-day-date">Mié 19 ago · Italia</div><div class="act-day-title">Riviera italiana · Dolceacqua & Bordighera</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">🇮🇹 Ventimiglia</span><span class="activity-tag">🏰 Dolceacqua</span><span class="activity-tag">🎨 Monet</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <div class="act-section-title">📍 Visitas en Italia</div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏰 Dolceacqua — casco medieval <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Pueblo ligur con el puente romano que pintó Monet en 1884. Castillo Doria, callejuelas medievales y la focaccia local. Castillo ~3€/pers.</div>
+          <div class="act-item-price">Castillo ~3€/pers · 8 pers: ~24€</div>
+          <a class="act-link" href="https://www.dolceacqua.it/turismo/castello-doria/" target="_blank">🎟️ Info Castillo ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">10–12h / 14–17h</div><div class="act-item-rating">⭐ 4.8</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏙️ Ventimiglia — casco antiguo <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Casco medieval tranquilo entre semana. Cruce de culturas italiana y francesa.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Libre</div><div class="act-item-rating">⭐ 4.3</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🌴 Bordighera — Città Alta <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Ciudad alta medieval con palmeras centenarias. Destino histórico de la aristocracia europea, más tranquila que San Remo.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Libre</div><div class="act-item-rating">⭐ 4.5</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 6 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">06</div>
+        <div class="act-day-info"><div class="act-day-date">Jue 20 ago · Cannes</div><div class="act-day-title">Cannes & Islas de Lerins</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">⛴️ Ferry</span><span class="activity-tag">🏝️ Isla</span><span class="activity-tag">🎬 Croisette</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <div class="act-section-title">📍 Visitas en Cannes</div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏝️ Île Sainte-Marguerite <span class="act-badge-res">⚡ Reservar</span></div>
+          <div class="act-item-desc">Isla del prisionero de la Máscara de Hierro. Eucaliptos, pinos y aguas turquesas para bañarse.</div>
+          <div class="act-item-price">Ferry ~15€/pers · 8 pers: ~120€</div>
+          <a class="act-link" href="https://www.trans-cote-azur.com/iles-de-lerins/" target="_blank">🎟️ Comprar ferry ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Ferries cada hora</div><div class="act-item-rating">⭐ 4.7</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🎬 Palais des Festivals <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">La alfombra roja del Festival de Cannes. Huellas de estrellas en el Boulevard de la Croisette.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">9–19h</div><div class="act-item-rating">⭐ 4.4</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🖼️ Mural Cinéma Cannes <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Enorme mural en el puerto en homenaje al cine. Muy fotogénico.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Siempre visible</div><div class="act-item-rating">⭐ 4.5</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 7 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">07</div>
+        <div class="act-day-info"><div class="act-day-date">Vie 21 ago · Provenza interior</div><div class="act-day-title">Saint-Paul-de-Vence · Grasse · Gourdon</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">🎨 Saint-Paul</span><span class="activity-tag">🌸 Grasse</span><span class="activity-tag">🦅 Gourdon</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <div class="act-section-title">📍 Ruta Provenza interior — todo gratis</div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🎨 Saint-Paul-de-Vence <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Murallas medievales, galerías de arte y callejuelas de piedra. Tumba de Marc Chagall en el cementerio.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Libre</div><div class="act-item-rating">⭐ 4.7</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🌸 Grasse — capital del perfume <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Visita libre a las casas Fragonard, Galimard o Molinard: exposiciones gratuitas sobre la fabricación de perfumes.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">9–18h aprox.</div><div class="act-item-rating">⭐ 4.5</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🦅 Gourdon — nido de águila <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">A 760m sobre el río Loup. Vistas hasta el Mediterráneo. Pueblo medieval casi intacto.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Libre</div><div class="act-item-rating">⭐ 4.6</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 8 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">08</div>
+        <div class="act-day-info"><div class="act-day-date">Sáb 22 ago · Atlántico</div><div class="act-day-title">Llegada a Andernos-les-Bains</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">🚗 Traslado</span><span class="activity-tag">🏖️ Playa</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <p class="act-empty">Día de gran traslado La Turbie → Andernos (~9h). Al llegar: primer paseo por la Bahía de Arcachon.</p>
+    </div>
+  </div>
+
+  <!-- DÍA 9 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">09</div>
+        <div class="act-day-info"><div class="act-day-date">Dom 23 ago · Arcachon</div><div class="act-day-title">Arcachon & Duna del Pilat</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">🏔️ Duna Pilat</span><span class="activity-tag">🚶 Visita guiada</span><span class="activity-tag">🦪 Arcachon</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <div class="act-section-title">📍 Visitas en Arcachon</div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏔️ Dune du Pilat <span class="act-badge-free">Acceso gratis</span></div>
+          <div class="act-item-desc">La duna más alta de Europa (110m). Vistas del océano y los pinares de las Landas. Subir 1h antes del atardecer — probablemente el paisaje más impresionante del viaje.</div>
+          <div class="act-item-price">~4–8€/coche parking</div>
+          <a class="act-link" href="https://www.la-dune-du-pilat.com/" target="_blank">🎟️ Web oficial ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Siempre</div><div class="act-item-rating">⭐ 4.8</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🚶 Visita guiada · Ville d'Hiver <span class="act-badge-res">⚡ Reservar</span></div>
+          <div class="act-item-desc">Recorrido a pie por las 300 villas eclécticas victorianas del s.XIX. Grupos pequeños en agosto.</div>
+          <div class="act-item-price">~12–15€/pers · 8 pers: ~96–120€</div>
+          <a class="act-link" href="https://www.arcachon.com/visites-guidees/" target="_blank">🎟️ Reservar visita ↗</a>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">10:00h y 15:00h</div><div class="act-item-rating">⭐ 4.7</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🏘️ La Ville d'Hiver <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Barrio victoriano con 300 villas eclécticas del s.XIX construidas para adinerados.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">9:30–19h</div><div class="act-item-rating">⭐ 4.6</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🌹 Parc Mauresque <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Arboreto con 4 ha de plantas exóticas y rosaleda de 600 rosales.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">7–22h</div><div class="act-item-rating">⭐ 4.5</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🗼 Observatoire Sainte-Cécile <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">Torre de hierro con vistas panorámicas 360° sobre la bahía, los pinares y el océano.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">7–22h</div><div class="act-item-rating">⭐ 4.6</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 10 -->
+  <div class="act-day">
+    <div class="act-day-header" onclick="toggleAct(this)">
+      <div class="act-day-left">
+        <div class="act-day-num">10</div>
+        <div class="act-day-info"><div class="act-day-date">Lun 24 ago · Regreso</div><div class="act-day-title">Regreso a Alpedrete vía San Sebastián</div></div>
+      </div>
+      <div class="act-day-tags"><span class="activity-tag">🍢 Pintxos</span><span class="activity-tag">🌊 La Concha</span></div>
+      <span class="act-arrow">▼</span>
+    </div>
+    <div class="act-body">
+      <div class="act-section-title">📍 Parada en San Sebastián</div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🍢 Pintxos en la Parte Vieja <span class="act-badge-free">A gusto</span></div>
+          <div class="act-item-desc">Bares de pintxos en el casco antiguo de Donosti. Imprescindible antes del tramo final a Madrid.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">~12:30h</div><div class="act-item-rating">⭐ 4.9</div></div>
+      </div>
+      <div class="act-item">
+        <div class="act-item-left">
+          <div class="act-item-name">🌊 Paseo por La Concha <span class="act-badge-free">Gratis</span></div>
+          <div class="act-item-desc">El paseo marítimo más bonito del Cantábrico. Una vuelta rápida antes de coger la A-1.</div>
+        </div>
+        <div class="act-item-right"><div class="act-item-hours">Libre</div><div class="act-item-rating">⭐ 4.9</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
 <div class="footer">
   ✦ Verano 2026 ✦<br>
   Alpedrete → Costa Vermella → Costa Azul → Riviera italiana → Atlántico → Donosti → Alpedrete
@@ -1230,6 +1631,12 @@ function showTab(id, btn) {
 }
 function toggle(el) {
   el.classList.toggle('checked');
+}
+function toggleAct(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
 }
 </script>
 </body>
