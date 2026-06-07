@@ -27,8 +27,8 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
 .divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, #c07830, transparent); margin: 2.5rem auto; }
 
 /* TABS */
-.tab-nav { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; padding: 0 1rem 1.5rem; position: sticky; top: 0; background: rgba(240,244,250,0.96); backdrop-filter: blur(8px); z-index: 100; padding-top: 0.8rem; border-bottom: 1px solid #2a3d5c; }
-.tab-btn { font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.1rem; border-radius: 2rem; border: 1px solid #d1d5db; background: transparent; color: #8a9dc0; cursor: pointer; transition: all 0.2s; }
+.tab-nav { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; padding: 0 1rem 1.5rem; position: sticky; top: 0; background: rgba(15,30,53,0.97); backdrop-filter: blur(8px); z-index: 100; padding-top: 0.8rem; border-bottom: 1px solid #2a3d5c; }
+.tab-btn { font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.1rem; border-radius: 2rem; border: 1px solid #7a90ad; background: transparent; color: #dce6f5; cursor: pointer; transition: all 0.2s; }
 .tab-btn:hover { border-color: #c07830; color: #c07830; }
 .tab-btn.active { background: rgba(212,160,80,0.18); border-color: #c07830; color: #c07830; }
 .tab-panel { display: none; }
@@ -197,6 +197,48 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
 .gas-tip { font-size: 0.68rem; color: #16a34a; margin-top: 0.05rem; font-style: italic; }
 
 .reservar-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.62rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 1rem; background: rgba(220,38,38,0.12); border: 1px solid rgba(220,38,38,0.4); color: #f87171; margin-left: 0.4rem; white-space: nowrap; letter-spacing: 0.01em; }
+
+/* FUEL BOX */
+.fuel-box { margin-top: 0.6rem; padding: 0.7rem 1rem; background: #141e30; border: 1px solid #2a3d5c; border-left: 3px solid #7c3aed; border-radius: 0 8px 8px 0; }
+.fuel-box-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a78bfa; margin-bottom: 0.5rem; }
+.fuel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.2rem; }
+.fuel-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; }
+.fuel-row-label { color: #8a9dc0; }
+.fuel-row-value { font-weight: 600; color: #c9d4e8; white-space: nowrap; }
+.fuel-total-row { display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid #2a3d5c; }
+.fuel-total-label { font-size: 0.72rem; font-weight: 700; color: #a78bfa; }
+.fuel-total-value { font-size: 0.9rem; font-weight: 700; color: #eef1f8; }
+.fuel-note { font-size: 0.65rem; color: #6e85a8; font-style: italic; margin-top: 0.4rem; }
+
+/* RESUMEN TOTAL COSTES */
+.costes-resumen { margin-bottom: 2rem; }
+.costes-resumen-title { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #8a9dc0; text-align: center; margin-bottom: 1rem; }
+.costes-cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
+.costes-cat-card { background: #172542; border: 1px solid #2a3d5c; border-radius: 14px; overflow: hidden; cursor: pointer; transition: border-color 0.2s; }
+.costes-cat-card:hover, .costes-cat-card.open { border-color: #a78bfa; }
+.costes-cat-card.open .costes-cat-chevron { transform: rotate(180deg); }
+.costes-cat-header { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1rem; gap: 0.5rem; }
+.costes-cat-icon { font-size: 1.4rem; flex-shrink: 0; }
+.costes-cat-info { flex: 1; min-width: 0; }
+.costes-cat-name { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #8a9dc0; }
+.costes-cat-amount { font-size: 1.25rem; font-weight: 700; color: #eef1f8; letter-spacing: -0.02em; line-height: 1.1; margin-top: 0.1rem; }
+.costes-cat-sub { font-size: 0.62rem; color: #6e85a8; margin-top: 0.1rem; }
+.costes-cat-chevron { font-size: 0.75rem; color: #6e85a8; transition: transform 0.2s; flex-shrink: 0; }
+.costes-cat-body { display: none; border-top: 1px solid #2a3d5c; padding: 0.75rem 1rem 0.9rem; }
+.costes-cat-body.open { display: block; }
+.costes-cat-line { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; padding: 0.25rem 0; border-bottom: 1px solid #1e2d44; }
+.costes-cat-line:last-child { border-bottom: none; }
+.costes-cat-line-label { color: #8a9dc0; }
+.costes-cat-line-val { font-weight: 600; color: #c9d4e8; white-space: nowrap; }
+.costes-cat-line-val.highlight { color: #a78bfa; }
+.costes-grand-total { background: #172542; border: 2px solid #d4a050; border-radius: 16px; padding: 1.2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.costes-grand-total-left { flex: 1; }
+.costes-grand-total-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #c07830; margin-bottom: 0.3rem; }
+.costes-grand-total-amount { font-size: 2.2rem; font-weight: 700; color: #eef1f8; letter-spacing: -0.03em; line-height: 1; }
+.costes-grand-total-sub { font-size: 0.75rem; color: #8a9dc0; margin-top: 0.3rem; }
+.costes-grand-total-right { text-align: right; }
+.costes-section-divider { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6e85a8; margin: 1.5rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid #2a3d5c; }
+@media (max-width: 700px) { .costes-cats { grid-template-columns: 1fr 1fr; } } @media (max-width: 420px) { .costes-cats { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -221,7 +263,7 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
   <button class="tab-btn active" onclick="showTab('itinerario',this)">📍 Itinerario</button>
   <button class="tab-btn" onclick="showTab('menu',this)">🍽️ Menú</button>
   <button class="tab-btn" onclick="showTab('compra',this)">🛒 Lista compra</button>
-  <button class="tab-btn" onclick="showTab('costes',this)">💶 Costes actividades</button>
+  <button class="tab-btn" onclick="showTab('costes',this)">💶 Costes</button>
 </div>
 
 <!-- ========== ITINERARIO ========== -->
@@ -244,6 +286,20 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
       <p class="day-desc">Gran día de viaje hacia el sur de Francia. Llegada a media tarde, instalación y primer baño en las playas cercanas a la casa.</p>
       <div class="activities"><span class="activity-tag">🚗 Viaje largo</span><span class="activity-tag">🏖️ Playa al llegar</span></div>
       <div class="accom-box"><div class="accom-label">Alojamiento · días 1–2</div><div class="accom-name">Ostau Agradiu — Maison de maître proche de la mer</div><div class="accom-addr">Costa Vermella, Francia</div><div class="accom-addr" style="margin-top:0.4rem"><a href="https://www.booking.com/hotel/fr/villa-margotte-maison-de-maitre-proche-de-la-mer.es.html" target="_blank" style="color:#d4a050;font-size:0.75rem;">Ver en Booking.com ↗</a></div></div>
+      <div class="fuel-box">
+  <div class="fuel-box-label">⛽ Combustible y peajes · Ida a la etapa 1</div>
+  <div class="fuel-grid">
+    <div class="fuel-row"><span class="fuel-row-label">📍 Ruta</span><span class="fuel-row-value">Alpedrete → Argelès</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">📏 Distancia</span><span class="fuel-row-value">~900 km</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">⛽ Consumo (8l/100)</span><span class="fuel-row-value">~72 l · ~123 €</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">🛣️ Peajes (AP-2 + AP-7 + A9)</span><span class="fuel-row-value">~44 €</span></div>
+  </div>
+  <div class="fuel-total-row">
+    <span class="fuel-total-label">TOTAL IDA ETAPA 1</span>
+    <span class="fuel-total-value">~167 €</span>
+  </div>
+  <div class="fuel-note">AP-2 Zaragoza–Barcelona ~14€ · AP-7 Barcelona–La Jonquera ~13€ · A9 Francia ~17€ · Diesel ~1.72€/l ES / ~1.70€/l FR</div>
+</div>
       <div class="gas-box">
   <div class="gas-label">⛽ Gasolineras más baratas · Argelès-sur-Mer</div>
   <div class="gas-item"><div class="gas-rank">1.</div><div class="gas-info"><div class="gas-name">Intermarché Station-Service</div><div class="gas-addr">Zone Commerciale, Rue des Milans — junto al hiper</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 3.6 · La más barata de la zona — precio de hiper, abierta siempre</div></div></div>
@@ -309,6 +365,20 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
         </div>
       </div>
       <div class="accom-box"><div class="accom-label">Alojamiento · días 3–7</div><div class="accom-name">Résidence "A Torbia"</div><div class="accom-addr">12 Avenue du Général de Gaulle · La Turbie 06320, Francia</div><div class="accom-addr" style="margin-top:0.4rem"><a href="https://www.booking.com/hotel/fr/residence-a-torbia-t3-nice.es.html" target="_blank" style="color:#d4a050;font-size:0.75rem;">Ver en Booking.com ↗</a></div></div>
+      <div class="fuel-box">
+  <div class="fuel-box-label">⛽ Combustible y peajes · Etapa 2</div>
+  <div class="fuel-grid">
+    <div class="fuel-row"><span class="fuel-row-label">📍 Traslado Argelès → La Turbie</span><span class="fuel-row-value">~280 km</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">🗺️ Excursiones internas (5 días)</span><span class="fuel-row-value">~400 km</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">⛽ Combustible total</span><span class="fuel-row-value">~55 l · ~94 €</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">🛣️ Peajes (A9 + A8 tramos)</span><span class="fuel-row-value">~25 €</span></div>
+  </div>
+  <div class="fuel-total-row">
+    <span class="fuel-total-label">TOTAL COMBUSTIBLE ETAPA 2</span>
+    <span class="fuel-total-value">~119 €</span>
+  </div>
+  <div class="fuel-note">A9 Argelès–Niza ~25€ · A8 tramos interiores ~10€ · Mónaco e Italia sin peaje significativo · Diesel ~1.70€/l FR</div>
+</div>
       <div class="gas-box">
   <div class="gas-label">⛽ Gasolineras más baratas · La Turbie / Mónaco</div>
   <div class="gas-item"><div class="gas-rank">1.</div><div class="gas-info"><div class="gas-name">E.Leclerc Autoroute · Beausoleil ⭐ MEJOR OPCIÓN</div><div class="gas-addr">Aire de la Riviera Française, 06240 Beausoleil</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 4.2 · La más barata cerca de Mónaco, justo en la A8 · repostar aquí antes de entrar al Principado</div></div></div>
@@ -445,6 +515,20 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
       <p class="day-desc">Gran traslado de costa a costa. Al llegar, mercado local y primera tarde en la tranquila Bahía de Arcachon.</p>
       <div class="activities"><span class="activity-tag">🚗 Traslado largo</span><span class="activity-tag">🛒 Compras</span><span class="activity-tag">🏖️ Playa</span></div>
       <div class="accom-box"><div class="accom-label">Alojamiento · días 8–9</div><div class="accom-name">Maison de vacances familiale proche de la plage</div><div class="accom-addr">16 Rue des Liserons · Andernos-les-Bains 33510, Francia</div><div class="accom-addr" style="margin-top:0.4rem"><a href="https://www.booking.com/hotel/fr/maison-de-vacances-familiale-proche-de-la-plage.es.html" target="_blank" style="color:#d4a050;font-size:0.75rem;">Ver en Booking.com ↗</a></div></div>
+      <div class="fuel-box">
+  <div class="fuel-box-label">⛽ Combustible y peajes · Traslado y etapa 3</div>
+  <div class="fuel-grid">
+    <div class="fuel-row"><span class="fuel-row-label">📍 La Turbie → Andernos</span><span class="fuel-row-value">~900 km</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">🗺️ Excursiones locales (2 días)</span><span class="fuel-row-value">~150 km</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">⛽ Combustible total</span><span class="fuel-row-value">~84 l · ~143 €</span></div>
+    <div class="fuel-row"><span class="fuel-row-label">🛣️ Peajes (A8+A7+A61+A62)</span><span class="fuel-row-value">~75 €</span></div>
+  </div>
+  <div class="fuel-total-row">
+    <span class="fuel-total-label">TOTAL TRASLADO + ETAPA 3</span>
+    <span class="fuel-total-value">~218 €</span>
+  </div>
+  <div class="fuel-note">A8 Menton–Aix ~30€ · A7/A9 Aix–Narbonne ~18€ · A61 ~10€ · A62 Toulouse–Burdeos ~17€ · A63/A660 Burdeos–Arcachon GRATIS · Diesel ~1.70€/l FR</div>
+</div>
       <div class="gas-box">
   <div class="gas-label">⛽ Gasolineras más baratas · Andernos-les-Bains</div>
   <div class="gas-item"><div class="gas-rank">1.</div><div class="gas-info"><div class="gas-name">Intermarché Station-Service · Andernos ⭐ MEJOR OPCIÓN</div><div class="gas-addr">2 Rue Bertin Lalande · junto al supermercado</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 3.9 · La más barata de la zona, precio de hiper, abierta siempre</div></div></div>
@@ -762,7 +846,107 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
 <div id="tab-costes" class="tab-panel">
 <div class="costes-panel">
 
-  <p class="costes-intro">Costes orientativos de entradas y actividades de pago · 8 personas · agosto 2026<br>Los precios pueden variar. Se indica precio base adulto salvo indicación contraria.</p>
+  <p class="costes-intro">Costes orientativos · 8 personas · agosto 2026 · Pulsa cada categoría para ver el desglose</p>
+
+  <div class="costes-resumen">
+    <div class="costes-resumen-title">Resumen de costes · 8 personas · 10 días · agosto 2026</div>
+
+    <div class="costes-cats">
+
+      <!-- COMPRAS -->
+      <div class="costes-cat-card" onclick="toggleCat(this)">
+        <div class="costes-cat-header">
+          <div class="costes-cat-icon">🛒</div>
+          <div class="costes-cat-info">
+            <div class="costes-cat-name">Compras</div>
+            <div class="costes-cat-amount">~800–1.100 €</div>
+            <div class="costes-cat-sub">~100–138 €/persona</div>
+          </div>
+          <div class="costes-cat-chevron">▼</div>
+        </div>
+        <div class="costes-cat-body">
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷 Etapa 1 · Costa Vermella (2 días)</span><span class="costes-cat-line-val">~150–200 €</span></div>
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷🇲🇨🇮🇹 Etapa 2 · Costa Azul (5 días)</span><span class="costes-cat-line-val">~400–550 €</span></div>
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷 Etapa 3 · Atlántico (2 días)</span><span class="costes-cat-line-val">~250–350 €</span></div>
+          <div class="costes-cat-line" style="margin-top:0.3rem;padding-top:0.4rem;border-top:1px solid #2a3d5c;border-bottom:none"><span class="costes-cat-line-label" style="color:#c9d4e8;font-weight:600">Total estimado</span><span class="costes-cat-line-val highlight">~800–1.100 €</span></div>
+        </div>
+      </div>
+
+      <!-- ACTIVIDADES -->
+      <div class="costes-cat-card" onclick="toggleCat(this)">
+        <div class="costes-cat-header">
+          <div class="costes-cat-icon">🎟️</div>
+          <div class="costes-cat-info">
+            <div class="costes-cat-name">Actividades</div>
+            <div class="costes-cat-amount">~588–1.076 €</div>
+            <div class="costes-cat-sub">~74–135 €/persona</div>
+          </div>
+          <div class="costes-cat-chevron">▼</div>
+        </div>
+        <div class="costes-cat-body">
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷 Etapa 1 · Costa Vermella</span><span class="costes-cat-line-val">~80–280 €</span></div>
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷🇲🇨🇮🇹 Etapa 2 · Costa Azul / Mónaco</span><span class="costes-cat-line-val">~464–668 €</span></div>
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷 Etapa 3 · Atlántico</span><span class="costes-cat-line-val">~84–128 €</span></div>
+          <div class="costes-cat-line" style="margin-top:0.3rem;padding-top:0.4rem;border-top:1px solid #2a3d5c;border-bottom:none"><span class="costes-cat-line-label" style="color:#c9d4e8;font-weight:600">Total estimado</span><span class="costes-cat-line-val highlight">~588–1.076 €</span></div>
+        </div>
+      </div>
+
+      <!-- TRANSPORTE -->
+      <div class="costes-cat-card" onclick="toggleCat(this)">
+        <div class="costes-cat-header">
+          <div class="costes-cat-icon">🚐</div>
+          <div class="costes-cat-info">
+            <div class="costes-cat-name">Transporte</div>
+            <div class="costes-cat-amount">~1.332 €</div>
+            <div class="costes-cat-sub">~167 €/persona</div>
+          </div>
+          <div class="costes-cat-chevron">▼</div>
+        </div>
+        <div class="costes-cat-body">
+          <div class="costes-cat-line"><span class="costes-cat-line-label">⛽ Combustible (~264 l · ~1.71 €/l)</span><span class="costes-cat-line-val">~450 €</span></div>
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🛣️ Peajes (AP-2, AP-7, A9, A8, A61, A62…)</span><span class="costes-cat-line-val">~204 €</span></div>
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🚐 Alquiler furgoneta (10 días)</span><span class="costes-cat-line-val">678 €</span></div>
+          <div class="costes-cat-line" style="margin-top:0.3rem;padding-top:0.4rem;border-top:1px solid #2a3d5c;border-bottom:none"><span class="costes-cat-line-label" style="color:#c9d4e8;font-weight:600">Total transporte</span><span class="costes-cat-line-val highlight">~1.332 €</span></div>
+        </div>
+      </div>
+
+      <!-- ALOJAMIENTO -->
+      <div class="costes-cat-card" onclick="toggleCat(this)">
+        <div class="costes-cat-header">
+          <div class="costes-cat-icon">🏠</div>
+          <div class="costes-cat-info">
+            <div class="costes-cat-name">Alojamiento</div>
+            <div class="costes-cat-amount">2.664 €</div>
+            <div class="costes-cat-sub">333 €/persona</div>
+          </div>
+          <div class="costes-cat-chevron">▼</div>
+        </div>
+        <div class="costes-cat-body">
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷 Etapa 1 · Costa Vermella (2 noches)</span><span class="costes-cat-line-val">567 €</span></div>
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷 Etapa 2 · Costa Azul / La Turbie (5 noches)</span><span class="costes-cat-line-val">1.486 €</span></div>
+          <div class="costes-cat-line"><span class="costes-cat-line-label">🇫🇷 Etapa 3 · Atlántico / Andernos (2 noches)</span><span class="costes-cat-line-val">611 €</span></div>
+          <div class="costes-cat-line" style="margin-top:0.3rem;padding-top:0.4rem;border-top:1px solid #2a3d5c;border-bottom:none"><span class="costes-cat-line-label" style="color:#c9d4e8;font-weight:600">Total alojamiento</span><span class="costes-cat-line-val highlight">2.664 €</span></div>
+        </div>
+      </div>
+
+    </div><!-- /costes-cats -->
+
+    <!-- GRAN TOTAL -->
+    <div class="costes-grand-total">
+      <div class="costes-grand-total-left">
+        <div class="costes-grand-total-label">💶 Coste total estimado · 8 personas</div>
+        <div class="costes-grand-total-amount">~5.384–6.172 €</div>
+        <div class="costes-grand-total-sub">Compras + Actividades + Transporte + Alojamiento</div>
+      </div>
+      <div class="costes-grand-total-right">
+        <div class="costes-grand-total-label">Por persona</div>
+        <div class="costes-grand-total-amount" style="font-size:1.6rem">~673–772 €</div>
+        <div class="costes-grand-total-sub">en 10 días</div>
+      </div>
+    </div>
+
+    <div class="costes-section-divider">Detalle de actividades por etapa</div>
+  </div><!-- /costes-resumen -->
 
   <!-- ETAPA 1 -->
   <div class="costes-etapa">
@@ -897,12 +1081,55 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
     </table>
   </div>
 
+  <!-- RESUMEN COMBUSTIBLE -->
+  <div class="costes-etapa" style="border-left: 3px solid #7c3aed;">
+    <div class="costes-etapa-header">
+      <div>
+        <div class="costes-etapa-title">⛽ Combustible y peajes · Resumen total del viaje</div>
+        <div class="costes-etapa-note">Furgoneta · 8 l/100 km diesel · ~1.70–1.72 €/l · agosto 2026</div>
+      </div>
+      <div class="costes-etapa-total" style="color:#a78bfa;">~654 €</div>
+    </div>
+    <table class="costes-table">
+      <thead><tr><th>Tramo</th><th>Km</th><th>Combustible</th><th>Peajes</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Alpedrete → Argelès-sur-Mer <span style="font-size:0.7rem;color:#6e85a8">(AP-2 + AP-7 + A9)</span></td>
+          <td>~900 km</td><td>~123 €</td><td>~44 €</td><td style="color:#a78bfa;font-weight:700">~167 €</td>
+        </tr>
+        <tr>
+          <td>Argelès → La Turbie + excursiones internas <span style="font-size:0.7rem;color:#6e85a8">(A9 + A8)</span></td>
+          <td>~680 km</td><td>~94 €</td><td>~25 €</td><td style="color:#a78bfa;font-weight:700">~119 €</td>
+        </tr>
+        <tr>
+          <td>La Turbie → Andernos <span style="font-size:0.7rem;color:#6e85a8">(A8+A7+A61+A62)</span></td>
+          <td>~900 km</td><td>~122 €</td><td>~75 €</td><td style="color:#a78bfa;font-weight:700">~197 €</td>
+        </tr>
+        <tr>
+          <td>Excursiones locales Arcachon <span style="font-size:0.7rem;color:#6e85a8">(A63/A660 gratis)</span></td>
+          <td>~150 km</td><td>~20 €</td><td>0 €</td><td style="color:#a78bfa;font-weight:700">~20 €</td>
+        </tr>
+        <tr>
+          <td>Regreso Andernos → Alpedrete <span style="font-size:0.7rem;color:#6e85a8">(A63+A64+A61+A9+AP-7+AP-2)</span></td>
+          <td>~950 km</td><td>~130 €</td><td>~75 €</td><td style="color:#a78bfa;font-weight:700">~205 €</td>
+        </tr>
+        <tr class="costes-subtotal">
+          <td colspan="2"><strong>TOTAL 10 días · ~3.300 km · ~264 litros</strong></td>
+          <td><strong>~450 €</strong></td><td><strong>~204 €</strong></td><td style="color:#a78bfa;font-weight:700;font-size:1rem"><strong>~654 €</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="costes-disclaimer" style="text-align:left;padding:0.5rem 1rem 0.8rem;font-size:0.72rem;color:#6e85a8;">
+      ⚠️ Peajes calculados para furgoneta ligera (&lt;3,5t, altura &lt;2m = clase 1/ligero). Si la furgoneta supera los 2m de altura pasa a clase 2 y los peajes en Francia aumentan ~30–40%. Precio diesel estimado ~1.70€/l en hipers; en autopistas puede superar 1.85€/l — repostar siempre en hipers (Intermarché, Leclerc). AP-7 Barcelona–La Jonquera y AP-2 son de pago. A63/A660 Burdeos–Arcachon: gratuita.
+    </div>
+  </div>
+
   <!-- GRAN TOTAL -->
   <div class="costes-grand">
     <div>
-      <div class="costes-grand-label">Total actividades estimado · 8 personas</div>
+      <div class="costes-grand-label">Total actividades · 8 personas</div>
       <div class="costes-grand-amount">~588–1.076€</div>
-      <div class="costes-grand-sub">Según actividad acuática elegida (día 2) y opcionales de Mónaco</div>
+      <div class="costes-grand-sub">Solo entradas y excursiones · ver resumen arriba para total completo</div>
     </div>
     <div class="costes-grand-perpers">
       <div class="costes-grand-label">Por persona</div>
@@ -926,6 +1153,18 @@ body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh;
 </div>
 
 <script>
+function toggleCat(card) {
+  const body = card.querySelector('.costes-cat-body');
+  const isOpen = body.classList.contains('open');
+  // cerrar todos
+  document.querySelectorAll('.costes-cat-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.costes-cat-card').forEach(c => c.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    card.classList.add('open');
+  }
+}
+
 function showTab(id, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
