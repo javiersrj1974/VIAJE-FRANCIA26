@@ -8,7 +8,7 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh; color: #2d3142; }
+body { font-family: 'Inter', sans-serif; background: #0f1e35; min-height: 100vh; color: #e2e8f4; }
 
 /* HERO */
 .hero { position: relative; padding: 4rem 2rem 3rem; text-align: center; overflow: hidden; }
@@ -17,20 +17,20 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 .hero-photo-wrap { position: relative; margin-bottom: 0; }
 .hero-photo-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, #f0f4fa); border-radius: 0 0 12px 12px; }
 .flag-row { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; font-size: 2rem; }
-.hero h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; color: #1a1f36; letter-spacing: 0.02em; line-height: 1.15; margin-bottom: 0.5rem; }
-.hero .subtitle { font-family: 'DM Sans', sans-serif; font-style: italic; font-size: 1.15rem; color: #6b7280; margin-bottom: 0.75rem; }
-.dates-badge { display: inline-block; background: rgba(212,160,80,0.15); border: 1px solid rgba(212,160,80,0.4); color: #d4a050; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.45rem 1.2rem; border-radius: 2rem; margin-bottom: 2rem; }
+.hero h1 { font-family: 'Inter', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; color: #eef1f8; letter-spacing: 0.02em; line-height: 1.15; margin-bottom: 0.5rem; }
+.hero .subtitle { font-family: 'DM Sans', sans-serif; font-style: italic; font-size: 1.15rem; color: #8a9dc0; margin-bottom: 0.75rem; }
+.dates-badge { display: inline-block; background: rgba(212,160,80,0.18); border: 1px solid rgba(212,160,80,0.4); color: #d4a050; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.45rem 1.2rem; border-radius: 2rem; margin-bottom: 2rem; }
 .summary-strip { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
 .summary-stat { text-align: center; }
 .summary-stat .num { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 700; color: #c07830; display: block; }
-.summary-stat .lbl { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; }
+.summary-stat .lbl { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #6e85a8; }
 .divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, #c07830, transparent); margin: 2.5rem auto; }
 
 /* TABS */
-.tab-nav { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; padding: 0 1rem 1.5rem; position: sticky; top: 0; background: rgba(240,244,250,0.96); backdrop-filter: blur(8px); z-index: 100; padding-top: 0.8rem; border-bottom: 1px solid #e5e7eb; }
-.tab-btn { font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.1rem; border-radius: 2rem; border: 1px solid #d1d5db; background: transparent; color: #6b7280; cursor: pointer; transition: all 0.2s; }
+.tab-nav { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; padding: 0 1rem 1.5rem; position: sticky; top: 0; background: rgba(240,244,250,0.96); backdrop-filter: blur(8px); z-index: 100; padding-top: 0.8rem; border-bottom: 1px solid #2a3d5c; }
+.tab-btn { font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.1rem; border-radius: 2rem; border: 1px solid #d1d5db; background: transparent; color: #8a9dc0; cursor: pointer; transition: all 0.2s; }
 .tab-btn:hover { border-color: #c07830; color: #c07830; }
-.tab-btn.active { background: rgba(212,160,80,0.15); border-color: #c07830; color: #c07830; }
+.tab-btn.active { background: rgba(212,160,80,0.18); border-color: #c07830; color: #c07830; }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
@@ -41,21 +41,21 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 .day-card:last-child::before { display: none; }
 .day-left { padding: 1.8rem 1.5rem 1.8rem 0; text-align: right; position: relative; flex-shrink: 0; }
 .day-num { font-family: 'Inter', sans-serif; font-size: 1.6rem; font-weight: 700; color: #c07830; line-height: 1; }
-.day-date { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin-top: 0.25rem; }
+.day-date { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6e85a8; margin-top: 0.25rem; }
 .dot { position: absolute; right: -6px; top: 2.3rem; width: 11px; height: 11px; border-radius: 50%; background: #c07830; border: 2px solid #f7f5f2; box-shadow: 0 0 0 3px rgba(212,160,80,0.2); }
 .day-right { padding: 1.5rem 0 1.5rem 2rem; border-bottom: 1px solid #f0ede9; }
 .day-card:last-child .day-right { border-bottom: none; }
 .location-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
 .location-icon { width: 28px; height: 28px; border-radius: 50%; background: #fef3e2; border: 1px solid #fcd5a0; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
-.day-title { font-family: 'Inter', sans-serif; font-size: 1.15rem; color: #1a1f36; font-weight: 600; }
+.day-title { font-family: 'Inter', sans-serif; font-size: 1.15rem; color: #eef1f8; font-weight: 600; }
 .country-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.2rem 0.6rem; border-radius: 1rem; border: 1px solid #fcd5a0; color: #c07830; background: #fef9f0; white-space: nowrap; }
-.day-desc { font-size: 0.9rem; line-height: 1.7; color: #6b7280; margin-bottom: 0.75rem; }
+.day-desc { font-size: 0.9rem; line-height: 1.7; color: #8a9dc0; margin-bottom: 0.75rem; }
 .activities { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.6rem; }
-.activity-tag { font-size: 0.72rem; padding: 0.2rem 0.65rem; border-radius: 1rem; background: #f3f4f6; border: 1px solid #e5e7eb; color: #6b7280; white-space: nowrap; }
-.accom-box { margin-top: 0.8rem; padding: 0.65rem 0.9rem; background: #fefaf5; border-left: 2px solid #c07830; border-radius: 0 6px 6px 0; }
+.activity-tag { font-size: 0.72rem; padding: 0.2rem 0.65rem; border-radius: 1rem; background: #1e2e47; border: 1px solid #2a3d5c; color: #8a9dc0; white-space: nowrap; }
+.accom-box { margin-top: 0.8rem; padding: 0.65rem 0.9rem; background: #1e2d44; border-left: 2px solid #d4a050; border-radius: 0 6px 6px 0; }
 .accom-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #c07830; margin-bottom: 0.2rem; }
-.accom-name { font-size: 0.82rem; color: #374151; font-style: italic; }
-.accom-addr { font-size: 0.75rem; color: #9ca3af; margin-top: 0.1rem; }
+.accom-name { font-size: 0.82rem; color: #c9d4e8; font-style: italic; }
+.accom-addr { font-size: 0.75rem; color: #6e85a8; margin-top: 0.1rem; }
 
 /* HORARIOS */
 .schedule { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
@@ -64,28 +64,28 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 .time-chip.tip { background: #f0fdf4; border-color: #bbf7d0; color: #16a34a; font-weight: 400; font-style: italic; letter-spacing: 0; }
 
 /* VISITAS */
-.visits-block { margin-top: 0.9rem; border: 1px solid #e5e7eb; border-radius: 8px; background: #ffffff; overflow: hidden; }
+.visits-block { margin-top: 0.9rem; border: 1px solid #2a3d5c; border-radius: 8px; background: #172542; overflow: hidden; }
 .visits-header { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.8rem; background: #f9f5ff; border-bottom: 1px solid #e9d5ff; }
 .visits-title { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7c3aed; font-weight: 700; }
 .visit-list { padding: 0.4rem 0; }
 .visit-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.45rem 0.8rem; }
-.visit-item:not(:last-child) { border-bottom: 1px solid #f3f4f6; }
-.visit-name { font-size: 0.82rem; color: #1a1f36; font-weight: 700; }
-.visit-desc { font-size: 0.75rem; color: #9ca3af; margin-top: 0.1rem; }
+.visit-item:not(:last-child) { border-bottom: 1px solid #1e2d44; }
+.visit-name { font-size: 0.82rem; color: #eef1f8; font-weight: 700; }
+.visit-desc { font-size: 0.75rem; color: #6e85a8; margin-top: 0.1rem; }
 .visit-hours { font-size: 0.7rem; color: #7c3aed; white-space: nowrap; text-align: right; }
 .visit-rating { font-size: 0.7rem; color: #d97706; white-space: nowrap; text-align: right; margin-top: 0.2rem; }
 .visit-badge { display: inline-block; font-size: 0.6rem; padding: 0.1rem 0.45rem; border-radius: 1rem; background: #f5f3ff; border: 1px solid #ddd6fe; color: #7c3aed; margin-top: 0.25rem; }
 .visit-badge.free { background: #f0fdf4; border-color: #bbf7d0; color: #16a34a; }
 
 /* COMPRAS */
-.shop-block { margin-top: 0.9rem; border: 1px solid #e5e7eb; border-radius: 8px; background: #ffffff; overflow: hidden; }
+.shop-block { margin-top: 0.9rem; border: 1px solid #2a3d5c; border-radius: 8px; background: #172542; overflow: hidden; }
 .shop-block-header { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.8rem; background: #f0fdf4; border-bottom: 1px solid #bbf7d0; }
 .shop-block-title { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: #16a34a; font-weight: 700; }
 .shop-list { padding: 0.4rem 0; }
 .shop-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; padding: 0.45rem 0.8rem; }
-.shop-item:not(:last-child) { border-bottom: 1px solid #f3f4f6; }
-.shop-name { font-size: 0.82rem; color: #1a1f36; font-weight: 700; }
-.shop-desc { font-size: 0.75rem; color: #9ca3af; margin-top: 0.1rem; }
+.shop-item:not(:last-child) { border-bottom: 1px solid #1e2d44; }
+.shop-name { font-size: 0.82rem; color: #eef1f8; font-weight: 700; }
+.shop-desc { font-size: 0.75rem; color: #6e85a8; margin-top: 0.1rem; }
 .shop-addr { font-size: 0.7rem; color: #4a5d76; margin-top: 0.1rem; }
 .shop-hours { font-size: 0.7rem; color: #16a34a; white-space: nowrap; text-align: right; }
 .shop-rating { font-size: 0.7rem; color: #d97706; white-space: nowrap; text-align: right; margin-top: 0.2rem; }
@@ -94,13 +94,13 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 
 /* MENÚ */
 .menu-panel { max-width: 860px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
-.menu-intro { text-align: center; padding: 0 0 2rem; font-size: 0.78rem; color: #9ca3af; font-style: italic; }
-.menu-day { margin-bottom: 1rem; border: 1px solid #e5e7eb; border-radius: 10px; background: #ffffff; overflow: hidden; }
-.menu-day-header { display: grid; grid-template-columns: 90px 1fr; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }
+.menu-intro { text-align: center; padding: 0 0 2rem; font-size: 0.78rem; color: #6e85a8; font-style: italic; }
+.menu-day { margin-bottom: 1rem; border: 1px solid #2a3d5c; border-radius: 10px; background: #172542; overflow: hidden; }
+.menu-day-header { display: grid; grid-template-columns: 90px 1fr; background: #1a2a42; border-bottom: 1px solid #2a3d5c; }
 .menu-day-num { padding: 0.8rem 1rem; border-right: 1px solid #e5e7eb; }
 .menu-day-num .dn { font-family: 'Inter', sans-serif; font-size: 1.3rem; color: #d4a050; line-height: 1; }
-.menu-day-num .dd { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; margin-top: 0.15rem; }
-.menu-day-title { padding: 0.8rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #374151; display: flex; align-items: center; }
+.menu-day-num .dd { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6e85a8; margin-top: 0.15rem; }
+.menu-day-title { padding: 0.8rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #c9d4e8; display: flex; align-items: center; }
 .menu-meals { display: grid; grid-template-columns: repeat(3, 1fr); }
 .meal { padding: 0.8rem 1rem; }
 .meal:not(:last-child) { border-right: 1px solid #f3f4f6; }
@@ -108,27 +108,27 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 .meal-label.desayuno { color: #d97706; }
 .meal-label.comida { color: #16a34a; }
 .meal-label.cena { color: #7c3aed; }
-.meal-item { font-size: 0.78rem; color: #374151; line-height: 1.6; }
-.meal-note { font-size: 0.68rem; color: #9ca3af; margin-top: 0.3rem; font-style: italic; }
+.meal-item { font-size: 0.78rem; color: #c9d4e8; line-height: 1.6; }
+.meal-note { font-size: 0.68rem; color: #6e85a8; margin-top: 0.3rem; font-style: italic; }
 .meal-bocata { font-size: 0.78rem; color: #16a34a; line-height: 1.6; }
 
 /* LISTA COMPRA */
 .lista-panel { max-width: 860px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
-.lista-intro { text-align: center; padding: 0 0 1.5rem; font-size: 0.78rem; color: #9ca3af; font-style: italic; }
+.lista-intro { text-align: center; padding: 0 0 1.5rem; font-size: 0.78rem; color: #6e85a8; font-style: italic; }
 .etapa-compra { margin-bottom: 2rem; }
-.etapa-title { font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; color: #1a1f36; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e5e7eb; }
+.etapa-title { font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 600; color: #eef1f8; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #2a3d5c; }
 .lista-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.8rem; }
-.lista-cat { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.8rem; }
+.lista-cat { background: #172542; border: 1px solid #2a3d5c; border-radius: 8px; padding: 0.8rem; }
 .lista-cat-title { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #c07830; margin-bottom: 0.5rem; }
-.lista-item { font-size: 0.78rem; color: #4b5563; line-height: 2; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; user-select: none; transition: color 0.15s; }
+.lista-item { font-size: 0.78rem; color: #b8c5d8; line-height: 2; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; user-select: none; transition: color 0.15s; }
 .lista-item::before { content: ''; width: 14px; height: 14px; min-width: 14px; border: 1px solid #d1d5db; border-radius: 3px; transition: all 0.15s; }
 .lista-item.checked { color: #d1d5db; text-decoration: line-through; }
 .lista-item.checked::before { background: #50b882; border-color: #50b882; content: '✓'; display: flex; align-items: center; justify-content: center; font-size: 10px; color: white; }
-.lista-item strong { color: #1a1f36; }
+.lista-item strong { color: #eef1f8; }
 .lista-item.checked strong { color: #d1d5db; }
 
-.section-label { text-align: center; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: #9ca3af; margin: 2rem 0 0.5rem; }
-.footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #9ca3af; border-top: 1px solid #e5e7eb; margin-top: 2rem; }
+.section-label { text-align: center; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: #6e85a8; margin: 2rem 0 0.5rem; }
+.footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #6e85a8; border-top: 1px solid #e5e7eb; margin-top: 2rem; }
 
 @media (max-width: 600px) {
   .day-card { grid-template-columns: 70px 1fr; }
@@ -154,47 +154,49 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
 
 /* COSTES */
 .costes-panel { max-width: 860px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
-.costes-intro { text-align: center; padding: 0 0 2rem; font-size: 0.85rem; color: #6b7280; font-family: 'DM Sans', sans-serif; font-style: italic; }
-.costes-etapa { margin-bottom: 2.5rem; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
-.costes-etapa-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: #f9fafb; border-bottom: 1px solid #e5e7eb; flex-wrap: wrap; gap: 0.5rem; }
-.costes-etapa-title { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #1a1f36; }
+.costes-intro { text-align: center; padding: 0 0 2rem; font-size: 0.85rem; color: #8a9dc0; font-family: 'DM Sans', sans-serif; font-style: italic; }
+.costes-etapa { margin-bottom: 2.5rem; background: #172542; border: 1px solid #2a3d5c; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+.costes-etapa-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: #1a2a42; border-bottom: 1px solid #2a3d5c; flex-wrap: wrap; gap: 0.5rem; }
+.costes-etapa-title { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #eef1f8; }
 .costes-etapa-total { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 700; color: #c07830; }
-.costes-etapa-note { font-size: 0.75rem; color: #9ca3af; font-style: italic; }
+.costes-etapa-note { font-size: 0.75rem; color: #6e85a8; font-style: italic; }
 .costes-table { width: 100%; border-collapse: collapse; }
-.costes-table th { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; padding: 0.6rem 1.5rem; text-align: left; border-bottom: 1px solid #f3f4f6; background: #f9fafb; }
+.costes-table th { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6e85a8; padding: 0.6rem 1.5rem; text-align: left; border-bottom: 1px solid #1e2d44; background: #1a2a42; }
 .costes-table th:last-child { text-align: right; }
-.costes-table td { padding: 0.75rem 1.5rem; font-size: 0.85rem; color: #374151; border-bottom: 1px solid #f3f4f6; vertical-align: top; }
+.costes-table td { padding: 0.75rem 1.5rem; font-size: 0.85rem; color: #c9d4e8; border-bottom: 1px solid #1e2d44; vertical-align: top; }
 .costes-table tr:last-child td { border-bottom: none; }
 .costes-table td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
-.costes-table .row-optional td { color: #9ca3af; }
+.costes-table .row-optional td { color: #6e85a8; }
 .costes-table .row-optional td:last-child { color: #d1d5db; }
-.costes-badge-opt { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.1rem 0.5rem; border-radius: 1rem; background: #f3f4f6; border: 1px solid #e5e7eb; color: #9ca3af; margin-left: 0.4rem; vertical-align: middle; }
+.costes-badge-opt { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.1rem 0.5rem; border-radius: 1rem; background: #1e2e47; border: 1px solid #2a3d5c; color: #6e85a8; margin-left: 0.4rem; vertical-align: middle; }
 .costes-badge-rec { display: inline-block; font-size: 0.65rem; font-weight: 600; padding: 0.1rem 0.5rem; border-radius: 1rem; background: #fef3e2; border: 1px solid #fcd5a0; color: #c07830; margin-left: 0.4rem; vertical-align: middle; }
-.costes-subtotal { background: #f9fafb; }
-.costes-subtotal td { font-weight: 700; color: #1a1f36; font-size: 0.9rem; border-top: 2px solid #e5e7eb; }
-.costes-grand { margin-top: 2rem; padding: 1.5rem; background: #ffffff; border: 2px solid #c07830; border-radius: 16px; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.costes-subtotal { background: #1a2a42; }
+.costes-subtotal td { font-weight: 700; color: #eef1f8; font-size: 0.9rem; border-top: 2px solid #2a3d5c; }
+.costes-grand { margin-top: 2rem; padding: 1.5rem; background: #172542; border: 2px solid #d4a050; border-radius: 16px; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 .costes-grand-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #c07830; margin-bottom: 0.4rem; }
-.costes-grand-amount { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 700; color: #1a1f36; letter-spacing: -0.03em; line-height: 1; }
-.costes-grand-sub { font-size: 0.78rem; color: #6b7280; margin-top: 0.3rem; }
+.costes-grand-amount { font-family: 'Inter', sans-serif; font-size: 2rem; font-weight: 700; color: #eef1f8; letter-spacing: -0.03em; line-height: 1; }
+.costes-grand-sub { font-size: 0.78rem; color: #8a9dc0; margin-top: 0.3rem; }
 .costes-grand-perpers { text-align: right; }
 .costes-grand-perpers .costes-grand-label { text-align: right; }
-.costes-disclaimer { margin-top: 1.5rem; font-size: 0.78rem; color: #9ca3af; font-style: italic; text-align: center; line-height: 1.6; }
+.costes-disclaimer { margin-top: 1.5rem; font-size: 0.78rem; color: #6e85a8; font-style: italic; text-align: center; line-height: 1.6; }
 
 
 .book-link { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.5rem; font-size: 0.7rem; font-weight: 600; padding: 0.28rem 0.7rem; border-radius: 1rem; background: rgba(192,120,48,0.10); border: 1px solid rgba(192,120,48,0.35); color: #c07830; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
 .book-link:hover { background: rgba(192,120,48,0.22); }
 
 /* GASOLINERAS */
-.gas-box { margin-top: 0.6rem; padding: 0.6rem 0.9rem; background: #f0f7f0; border-left: 2px solid #16a34a; border-radius: 0 6px 6px 0; }
+.gas-box { margin-top: 0.6rem; padding: 0.6rem 0.9rem; background: #112a1f; border-left: 2px solid #22c55e; border-radius: 0 6px 6px 0; }
 .gas-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #16a34a; margin-bottom: 0.35rem; }
 .gas-item { display: flex; align-items: flex-start; gap: 0.4rem; margin-bottom: 0.3rem; }
 .gas-item:last-child { margin-bottom: 0; }
 .gas-rank { font-size: 0.65rem; font-weight: 700; color: #16a34a; min-width: 1rem; padding-top: 0.05rem; }
 .gas-info { flex: 1; }
-.gas-name { font-size: 0.78rem; font-weight: 600; color: #1a1f36; }
-.gas-addr { font-size: 0.7rem; color: #9ca3af; margin-top: 0.05rem; }
-.gas-hours { font-size: 0.68rem; color: #6b7280; margin-top: 0.05rem; font-style: italic; }
+.gas-name { font-size: 0.78rem; font-weight: 600; color: #eef1f8; }
+.gas-addr { font-size: 0.7rem; color: #6e85a8; margin-top: 0.05rem; }
+.gas-hours { font-size: 0.68rem; color: #8a9dc0; margin-top: 0.05rem; font-style: italic; }
 .gas-tip { font-size: 0.68rem; color: #16a34a; margin-top: 0.05rem; font-style: italic; }
+
+.reservar-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.62rem; font-weight: 700; padding: 0.15rem 0.55rem; border-radius: 1rem; background: rgba(220,38,38,0.12); border: 1px solid rgba(220,38,38,0.4); color: #f87171; margin-left: 0.4rem; white-space: nowrap; letter-spacing: 0.01em; }
 </style>
 </head>
 <body>
@@ -246,14 +248,12 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
   <div class="gas-label">⛽ Gasolineras más baratas · Argelès-sur-Mer</div>
   <div class="gas-item"><div class="gas-rank">1.</div><div class="gas-info"><div class="gas-name">Intermarché Station-Service</div><div class="gas-addr">Zone Commerciale, Rue des Milans — junto al hiper</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 3.6 · La más barata de la zona — precio de hiper, abierta siempre</div></div></div>
   <div class="gas-item"><div class="gas-rank">2.</div><div class="gas-info"><div class="gas-name">Dyneff GPL</div><div class="gas-addr">Av. du 8 Mai 1945 · cerca de Lidl</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 4.2 · Precio competitivo, amplio espacio para coche grande</div></div></div>
-  <div class="gas-item"><div class="gas-rank">3.</div><div class="gas-info"><div class="gas-name">TotalEnergies Argelès</div><div class="gas-addr">5 Rte du Littoral · junto al mar</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 4.0 · Surtidores en varios idiomas, cómodo al llegar o salir</div></div></div>
 </div>
       <div class="shop-block">
         <div class="shop-block-header"><span class="shop-block-title">🛒 Dónde comprar — Argelès-sur-Mer</span></div>
         <div class="shop-list">
           <div class="shop-item"><div><div class="shop-name">Intermarché Hyper Argelès</div><div class="shop-desc">Gran hiper. Carnicería, pescadería y panadería propias. Aparcamiento enorme.</div><div class="shop-addr">Rue des Milans, Argelès-sur-Mer</div><span class="shop-badge">Compra grande</span></div><div><div class="shop-hours">Lu–Sá 8:30–20h</div><div class="shop-hours">Do 8:30–13h</div><div class="shop-rating">⭐ 4.1</div></div></div>
           <div class="shop-item"><div><div class="shop-name">Intermarché Express Plage</div><div class="shop-desc">Cerca de la playa, ideal para reposiciones rápidas.</div><div class="shop-addr">12 Av. du Tech</div><span class="shop-badge">Reposición</span></div><div><div class="shop-hours">Lu–Sá 8:30–19:30h</div><div class="shop-hours">Do hasta 20:30h</div><div class="shop-rating">⭐ 3.9</div></div></div>
-          <div class="shop-item"><div><div class="shop-name">Lidl Argelès</div><div class="shop-desc">Buen precio. Aparcamiento en el tejado.</div><div class="shop-addr">60 Av. du 8 Mai 1945</div><span class="shop-badge">Económico</span></div><div><div class="shop-hours">Lu–Sá 8:30–20h</div><div class="shop-hours">Do 8:30–12:30h</div><div class="shop-rating">⭐ 4.1</div></div></div>
         </div>
       </div>
     </div>
@@ -270,13 +270,12 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
         <span class="time-chip tip">Collioure: lleno a partir de las 11h — llegar pronto</span>
         <a class="map-link" href="https://www.google.com/maps/dir/Argel%C3%A8s-sur-Mer/Collioure,+France" target="_blank">🗺️ Ver ruta en Maps ↗</a>
       </div>
-      <p class="day-desc">Día completo en el pintoresco puerto de Collioure, paraíso de Matisse y Derain. Mañana en las calas y el pueblo; tarde con actividades acuáticas: kayak de mar o excursión en barco por la Costa Vermella.</p>
-      <div class="activities"><span class="activity-tag">⚓ Collioure</span><span class="activity-tag">🛶 Kayak de mar</span><span class="activity-tag">⛵ Excursión en barco</span><span class="activity-tag">🎨 Casco histórico</span></div>
+      <p class="day-desc">Día completo en el pintoresco puerto de Collioure, paraíso de Matisse y Derain. Mañana en las calas y el pueblo; tarde con actividades acuáticas: excursión en barco por la Costa Vermella.</p>
+      <div class="activities"><span class="activity-tag">⚓ Collioure</span><span class="activity-tag">⛵ Excursión en barco</span><span class="activity-tag">🎨 Casco histórico</span></div>
       <div class="visits-block">
         <div class="visits-header"><span class="visits-title">📍 Qué visitar y hacer</span></div>
         <div class="visit-list">
-          <div class="visit-item"><div><div class="visit-name">Kayak de mar — Costa Vermella</div><div class="visit-desc">Rutas en kayak doble o individual por las calas rocosas de la Costa Vermella. Empresas locales en el puerto, salidas a partir de las 9h. Reservar con antelación en agosto.</div><span class="visit-badge">~20–30€/pers · <strong>8 pers: ~160–240€</strong></span><br><a class="book-link" href="https://www.getyourguide.es/collioure-l97326/kayak-tc47/" target="_blank">🎟️ Reservar en GetYourGuide ↗</a></div><div><div class="visit-hours">Desde 9:00h</div><div class="visit-rating">⭐ 4.7</div></div></div>
-          <div class="visit-item"><div><div class="visit-name">Excursión en barco — Costa Vermella</div><div class="visit-desc">Salidas en barco desde el puerto de Collioure hacia las calas vírgenes: Peyrefite, Canadell, Cala Virgili. Muchas empresas incluyen snorkel y parada en cala privada.</div><span class="visit-badge">~25–35€/pers · <strong>8 pers: ~200–280€</strong></span><br><a class="book-link" href="https://www.viator.com/Collioure/d24222-ttd" target="_blank">🎟️ Ver excursiones en Viator ↗</a></div><div><div class="visit-hours">9:30h y 14:30h</div><div class="visit-rating">⭐ 4.8</div></div></div>
+          <div class="visit-item"><div><div class="visit-name">Excursión en barco — Costa Vermella<span class="reservar-badge">⚡ Reservar con antelación</span></div><div class="visit-desc">Salidas en barco desde el puerto de Collioure hacia las calas vírgenes: Peyrefite, Canadell, Cala Virgili. Muchas empresas incluyen snorkel y parada en cala privada.</div><span class="visit-badge">~25–35€/pers · <strong>8 pers: ~200–280€</strong></span><br><a class="book-link" href="https://www.viator.com/Collioure/d24222-ttd" target="_blank">🎟️ Ver excursiones en Viator ↗</a></div><div><div class="visit-hours">9:30h y 14:30h</div><div class="visit-rating">⭐ 4.8</div></div></div>
           <div class="visit-item"><div><div class="visit-name">Château Royal de Collioure</div><div class="visit-desc">Castillo medieval sobre el mar. Vistas espectaculares. Si queda tiempo por la mañana, merece la visita.</div><span class="visit-badge">~10€/pers · <strong>8 pers: ~80€</strong></span><br><a class="book-link" href="https://www.chateau-collioure.com/" target="_blank">🎟️ Web oficial del castillo ↗</a></div><div><div class="visit-hours">10–18h</div><div class="visit-rating">⭐ 4.6</div></div></div>
         </div>
       </div>
@@ -303,8 +302,8 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
       <div class="visits-block">
         <div class="visits-header"><span class="visits-title">📍 Qué visitar en Mónaco</span></div>
         <div class="visit-list">
-          <div class="visit-item"><div><div class="visit-name">Casino de Monte-Carlo</div><div class="visit-desc">Joya Belle Époque. Visita diurna desde las 10h (20€ incl. 10€ de crédito) o juego desde las 14h. Llevar pasaporte.</div><span class="visit-badge">20€/pers (incl. 10€ crédito) · <strong>8 pers: 160€</strong></span><br><a class="book-link" href="https://www.casinomontecarlo.com/es/visitas/" target="_blank">🎟️ Web oficial · entradas ↗</a></div><div><div class="visit-hours">10h – cierre</div><div class="visit-rating">⭐ 4.6</div></div></div>
-          <div class="visit-item"><div><div class="visit-name">Palacio del Príncipe</div><div class="visit-desc">Residencia oficial de los Grimaldi. Cambio de guardia a las 11:55h. Vistas increíbles del puerto.</div><span class="visit-badge">~10€/pers · <strong>8 pers: ~80€</strong></span><br><a class="book-link" href="https://palais.mc/es/visita-del-palacio/palacio-del-principe/" target="_blank">🎟️ Web oficial · Palacio ↗</a></div><div><div class="visit-hours">10–18h</div><div class="visit-rating">⭐ 4.6</div></div></div>
+          <div class="visit-item"><div><div class="visit-name">Casino de Monte-Carlo<span class="reservar-badge">⚡ Reservar con antelación</span></div><div class="visit-desc">Joya Belle Époque. Visita diurna desde las 10h (20€ incl. 10€ de crédito) o juego desde las 14h. Llevar pasaporte.</div><span class="visit-badge">20€/pers (incl. 10€ crédito) · <strong>8 pers: 160€</strong></span><br><a class="book-link" href="https://www.casinomontecarlo.com/es/visitas/" target="_blank">🎟️ Web oficial · entradas ↗</a></div><div><div class="visit-hours">10h – cierre</div><div class="visit-rating">⭐ 4.6</div></div></div>
+          <div class="visit-item"><div><div class="visit-name">Palacio del Príncipe<span class="reservar-badge">⚡ Reservar con antelación</span></div><div class="visit-desc">Residencia oficial de los Grimaldi. Cambio de guardia a las 11:55h. Vistas increíbles del puerto.</div><span class="visit-badge">~10€/pers · <strong>8 pers: ~80€</strong></span><br><a class="book-link" href="https://palais.mc/es/visita-del-palacio/palacio-del-principe/" target="_blank">🎟️ Web oficial · Palacio ↗</a></div><div><div class="visit-hours">10–18h</div><div class="visit-rating">⭐ 4.6</div></div></div>
           <div class="visit-item"><div><div class="visit-name">Museo Oceanográfico</div><div class="visit-desc">Espectacular acuario en un edificio colgado sobre el mar. Fundado por el Príncipe Alberto I.</div><span class="visit-badge">~18€/pers · <strong>8 pers: ~144€</strong></span><br><a class="book-link" href="https://www.oceano.mc/es/visita/informaciones-practicas" target="_blank">🎟️ Web oficial · entradas ↗</a></div><div><div class="visit-hours">Lu–Vi 10–19h</div><div class="visit-rating">⭐ 4.5</div></div></div>
           <div class="visit-item"><div><div class="visit-name">Jardín Exótico de Mónaco</div><div class="visit-desc">Cactus gigantes en un acantilado con vistas de 360°. Incluye visita a la cueva prehistórica.</div><span class="visit-badge">7.50€/pers · <strong>8 pers: 60€</strong></span><br><a class="book-link" href="https://www.gouv.mc/Action-Gouvernementale/Les-Equipements-Publics/Le-Jardin-Exotique" target="_blank">🎟️ Web oficial · Jardín Exótico ↗</a></div><div><div class="visit-hours">9–19h</div><div class="visit-rating">⭐ 4.6</div></div></div>
         </div>
@@ -314,14 +313,12 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
   <div class="gas-label">⛽ Gasolineras más baratas · La Turbie / Mónaco</div>
   <div class="gas-item"><div class="gas-rank">1.</div><div class="gas-info"><div class="gas-name">E.Leclerc Autoroute · Beausoleil ⭐ MEJOR OPCIÓN</div><div class="gas-addr">Aire de la Riviera Française, 06240 Beausoleil</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 4.2 · La más barata cerca de Mónaco, justo en la A8 · repostar aquí antes de entrar al Principado</div></div></div>
   <div class="gas-item"><div class="gas-rank">2.</div><div class="gas-info"><div class="gas-name">Intermarché Station-Service · Menton</div><div class="gas-addr">91 Rte du Val des Castagnins · Menton</div><div class="gas-hours">Abierto 24h todos los días</div><div class="gas-tip">⭐ 3.6 · Precio de hiper, 15 min de La Turbie. Alternativa si se baja a Menton</div></div></div>
-  <div class="gas-item"><div class="gas-rank">3.</div><div class="gas-info"><div class="gas-name">Station Service CTNT · La Turbie (de emergencia)</div><div class="gas-addr">231 Chemin de Saint-Pierre · La Turbie</div><div class="gas-hours">Lu–Sá 8–12h / 14–19h (cerrado domingos)</div><div class="gas-tip">⭐ 3.4 · La más próxima al alojamiento pero más cara. Solo para emergencias</div></div></div>
 </div>
       <div class="shop-block">
         <div class="shop-block-header"><span class="shop-block-title">🛒 Dónde comprar — La Turbie / Mónaco</span></div>
         <div class="shop-list">
           <div class="shop-item"><div><div class="shop-name">Carrefour Market Monaco</div><div class="shop-desc">El mejor súper del Principado. Pescadería y fruta top. Abierto 24h — perfecto para llegar tarde.</div><div class="shop-addr">17 Bd Albert 1er, Mónaco</div><span class="shop-badge">Abierto 24h</span></div><div><div class="shop-hours">24h todos los días</div><div class="shop-rating">⭐ 4.5</div></div></div>
           <div class="shop-item"><div><div class="shop-name">Carrefour Fontvieille</div><div class="shop-desc">Gran hiper en el centro comercial. Amplia sección de vinos y productos listos para comer.</div><div class="shop-addr">Centro Comercial Fontvieille, Mónaco</div><span class="shop-badge">Gran formato</span></div><div><div class="shop-hours">Lu–Sá 8–21h / Do 9–19h</div><div class="shop-rating">⭐ 4.2</div></div></div>
-          <div class="shop-item"><div><div class="shop-name">Marché de Monte-Carlo</div><div class="shop-desc">Mercado de calle en Beausoleil (justo encima de Mónaco). Fruta y productos locales.</div><div class="shop-addr">7 Av. Saint-Charles, Beausoleil</div><span class="shop-badge mkt">Mercado</span></div><div><div class="shop-hours">Lu–Sá 7–20h / Do 9–18h</div><div class="shop-rating">⭐ 4.4</div></div></div>
         </div>
       </div>
     </div>
@@ -399,7 +396,7 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
         <div class="visit-list">
           <div class="visit-item"><div><div class="visit-name">Palais des Festivals</div><div class="visit-desc">La alfombra roja del Festival de Cannes. Huellas de estrellas en el Boulevard de la Croisette.</div><span class="visit-badge free">Gratis (exterior)</span></div><div><div class="visit-hours">9–19h</div><div class="visit-rating">⭐ 4.4</div></div></div>
           <div class="visit-item"><div><div class="visit-name">Mural Cinéma Cannes</div><div class="visit-desc">Enorme mural en el puerto en homenaje al cine. Muy fotogénico.</div><span class="visit-badge free">Gratis</span></div><div><div class="visit-hours">Siempre visible</div><div class="visit-rating">⭐ 4.5</div></div></div>
-          <div class="visit-item"><div><div class="visit-name">Île Sainte-Marguerite</div><div class="visit-desc">Isla del prisionero de la Máscara de Hierro. Eucaliptos, pinos y aguas turquesas para bañarse.</div><span class="visit-badge">Ferry ~15€/pers · <strong>8 pers: ~120€</strong></span><br><a class="book-link" href="https://www.trans-cote-azur.com/iles-de-lerins/" target="_blank">🎟️ Comprar ferry Trans Côte d'Azur ↗</a></div><div><div class="visit-hours">Ferries cada hora</div><div class="visit-rating">⭐ 4.7</div></div></div>
+          <div class="visit-item"><div><div class="visit-name">Île Sainte-Marguerite<span class="reservar-badge">⚡ Reservar con antelación</span></div><div class="visit-desc">Isla del prisionero de la Máscara de Hierro. Eucaliptos, pinos y aguas turquesas para bañarse.</div><span class="visit-badge">Ferry ~15€/pers · <strong>8 pers: ~120€</strong></span><br><a class="book-link" href="https://www.trans-cote-azur.com/iles-de-lerins/" target="_blank">🎟️ Comprar ferry Trans Côte d'Azur ↗</a></div><div><div class="visit-hours">Ferries cada hora</div><div class="visit-rating">⭐ 4.7</div></div></div>
         </div>
       </div>
     </div>
@@ -458,7 +455,6 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
         <div class="shop-list">
           <div class="shop-item"><div><div class="shop-name">Marché couvert + municipal</div><div class="shop-desc">Pescado fresco, quesos, carne y repostería. Bar en el interior para tomar algo.</div><div class="shop-addr">Pl. du 14 Juillet</div><span class="shop-badge mkt">Mercado · Must</span></div><div><div class="shop-hours">Ma–Do 7–14:30h</div><div class="shop-rating">⭐ 4.4</div></div></div>
           <div class="shop-item"><div><div class="shop-name">Intermarché Super Andernos</div><div class="shop-desc">El súper más completo. Pescados, mariscos y productos de la bahía.</div><div class="shop-addr">2 Rue Bertin Lalande</div><span class="shop-badge">Súper completo</span></div><div><div class="shop-hours">Lu–Sá 8:30–20h / Do 9–12:45h</div><div class="shop-rating">⭐ 3.9</div></div></div>
-          <div class="shop-item"><div><div class="shop-name">Netto Andernos</div><div class="shop-desc">Discount para reposiciones económicas. También gasolinera.</div><div class="shop-addr">270 Bd de la République</div><span class="shop-badge">Económico</span></div><div><div class="shop-hours">Lu–Sá 9–19:30h / Do 9–12:30h</div><div class="shop-rating">⭐ 3.9</div></div></div>
         </div>
       </div>
     </div>
@@ -476,15 +472,15 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
         <span class="time-chip tip">Ostreros: mejor ir a primera hora</span>
         <a class="map-link" href="https://www.google.com/maps/dir/Andernos-les-Bains,+France/Cap+Ferret,+France/Arcachon,+France/Dune+du+Pilat,+France" target="_blank">🗺️ Ver ruta en Maps ↗</a>
       </div>
-      <p class="day-desc">Paseo en bici hasta Cap Ferret, Ville d'Hiver victoriana y mirador panorámico. Una de las actividades más típicas y divertidas de la bahía: alquiler de bicicletas para recorrer los carriles bici junto al mar (Andernos → Cap Ferret tiene carril-bici prácticamente continuo). Para 8 personas es fácil encontrar alquiler local. 🏔️ <strong>Dune du Pilat: imprescindible.</strong> Subir 1h antes del atardecer, llevar algo de picar y bajar cuando anochezca — probablemente el paisaje más impresionante de todo el viaje. No dejarlo para «si hay tiempo».</p>
-      <div class="activities"><span class="activity-tag">🚴 Bici por el litoral</span><span class="activity-tag">🏖️ Arcachon</span><span class="activity-tag">⛵ Dune du Pilat</span></div>
+      <p class="day-desc">Mañana con visita guiada a pie por la Ville d'Hiver, el barrio victoriano más singular de la costa atlántica. Por la tarde, obligatoria la Duna del Pilat. 🏔️ <strong>Dune du Pilat: imprescindible.</strong> Subir 1h antes del atardecer, llevar algo de picar y bajar cuando anochezca — probablemente el paisaje más impresionante de todo el viaje. No dejarlo para «si hay tiempo».</p>
+      <div class="activities"><span class="activity-tag">🚶 Visita guiada</span><span class="activity-tag">🏖️ Arcachon</span><span class="activity-tag">⛵ Dune du Pilat</span></div>
       <div class="visits-block">
         <div class="visits-header"><span class="visits-title">📍 Qué visitar en Arcachon</span></div>
         <div class="visit-list">
           <div class="visit-item"><div><div class="visit-name">La Ville d'Hiver</div><div class="visit-desc">Barrio victoriano con 300 villas eclécticas del s.XIX construidas para adinerados. Arquitectura increíble.</div><span class="visit-badge free">Gratis</span></div><div><div class="visit-hours">9:30–19h</div><div class="visit-rating">⭐ 4.6</div></div></div>
           <div class="visit-item"><div><div class="visit-name">Parc Mauresque</div><div class="visit-desc">Antiguo parque del casino quemado. Hoy arboreto con 4 ha de plantas exóticas y rosaleda de 600 rosales.</div><span class="visit-badge free">Gratis</span></div><div><div class="visit-hours">7–22h</div><div class="visit-rating">⭐ 4.5</div></div></div>
           <div class="visit-item"><div><div class="visit-name">Observatoire Sainte-Cécile</div><div class="visit-desc">Torre de hierro con vistas panorámicas de 360° sobre la bahía, los pinares y el océano. Escalera espiral.</div><span class="visit-badge free">Gratis</span></div><div><div class="visit-hours">7–22h</div><div class="visit-rating">⭐ 4.6</div></div></div>
-          <div class="visit-item"><div><div class="visit-name">Alquiler de bicis — Carril litoral</div><div class="visit-desc">Carril bici prácticamente continuo de Andernos a Cap Ferret junto al mar. Alquiler de bicis en Andernos y en las diferentes localidades de la bahía.</div><span class="visit-badge">~10–15€/día/pers · <strong>8 pers: ~80–120€</strong></span><br><a class="book-link" href="https://www.arcachon.com/activites/velo/" target="_blank">🎟️ Alquiler de bicis · Arcachon ↗</a></div><div><div class="visit-hours">Todo el día</div><div class="visit-rating">⭐ 4.6</div></div></div>
+          <div class="visit-item"><div><div class="visit-name">Visita guiada · La Ville d'Hiver<span class="reservar-badge">⚡ Reservar con antelación</span></div><div class="visit-desc">Recorrido guiado a pie por las 300 villas eclécticas del barrio victoriano. Guías locales con historias de las familias de la Belle Époque. Grupos pequeños — reservar con antelación en agosto.</div><span class="visit-badge">~12–15€/pers · <strong>8 pers: ~96–120€</strong></span><br><a class="book-link" href="https://www.arcachon.com/visites-guidees/" target="_blank">🎟️ Reservar visita guiada ↗</a></div><div><div class="visit-hours">10:00h y 15:00h</div><div class="visit-rating">⭐ 4.7</div></div></div>
           <div class="visit-item"><div><div class="visit-name">Dune du Pilat</div><div class="visit-desc">La duna más alta de Europa (110m). Vistas del océano y los pinares de las Landas. 20 min en coche.</div><span class="visit-badge">~4€/coche aparcamiento · gratis acceso</span><br><a class="book-link" href="https://www.la-dune-du-pilat.com/" target="_blank">🎟️ Web oficial Duna del Pilat ↗</a></div><div><div class="visit-hours">Siempre</div><div class="visit-rating">⭐ 4.8</div></div></div>
         </div>
       </div>
@@ -775,7 +771,7 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
         <div class="costes-etapa-title">🇫🇷 Etapa 1 — Costa Vermella · Días 1–2</div>
         <div class="costes-etapa-note">Argelès-sur-Mer · Collioure</div>
       </div>
-      <div class="costes-etapa-total">~80–400 €</div>
+      <div class="costes-etapa-total">~80–280 €</div>
     </div>
     <table class="costes-table">
       <thead><tr><th>Actividad</th><th>€/pers</th><th>8 personas</th></tr></thead>
@@ -784,11 +780,6 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
           <td>Château Royal de Collioure<span class="costes-badge-rec">Recomendada</span></td>
           <td>~10€</td>
           <td>~80€</td>
-        </tr>
-        <tr class="row-optional">
-          <td>Kayak de mar — Costa Vermella<span class="costes-badge-opt">Opcional</span></td>
-          <td>~20–30€</td>
-          <td>~160–240€</td>
         </tr>
         <tr class="row-optional">
           <td>Excursión en barco — Costa Vermella<span class="costes-badge-opt">Opcional</span></td>
@@ -800,8 +791,8 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
           <td>~80€</td>
         </tr>
         <tr class="costes-subtotal">
-          <td colspan="2">Con actividad acuática (una)</td>
-          <td>~200–320€</td>
+          <td colspan="2">Con excursión en barco</td>
+          <td>~200–280€</td>
         </tr>
       </tbody>
     </table>
@@ -894,12 +885,12 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
           <td>0€</td>
         </tr>
         <tr>
-          <td>Alquiler bicis (carril litoral)<span class="costes-badge-rec">Recomendada</span></td>
-          <td>~10–15€/día</td>
-          <td>~80–120€</td>
+          <td>Visita guiada Ville d'Hiver · Arcachon<span class="costes-badge-rec">Recomendada</span></td>
+          <td>~12–15€</td>
+          <td>~96–120€</td>
         </tr>
         <tr class="costes-subtotal">
-          <td colspan="2">Total etapa 3 (bicis incluidas)</td>
+          <td colspan="2">Total etapa 3 (visita guiada incluida)</td>
           <td>~84–128€</td>
         </tr>
       </tbody>
@@ -910,12 +901,12 @@ body { font-family: 'Inter', sans-serif; background: #f0f4fa; min-height: 100vh;
   <div class="costes-grand">
     <div>
       <div class="costes-grand-label">Total actividades estimado · 8 personas</div>
-      <div class="costes-grand-amount">~628–1.116€</div>
+      <div class="costes-grand-amount">~588–1.076€</div>
       <div class="costes-grand-sub">Según actividad acuática elegida (día 2) y opcionales de Mónaco</div>
     </div>
     <div class="costes-grand-perpers">
       <div class="costes-grand-label">Por persona</div>
-      <div class="costes-grand-amount" style="font-size:1.5rem">~78–140€</div>
+      <div class="costes-grand-amount" style="font-size:1.5rem">~74–135€</div>
       <div class="costes-grand-sub">en 10 días</div>
     </div>
   </div>
